@@ -20,6 +20,16 @@
     }
 }
 
+
+.FirstContent {
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+}
+
 .fade {
     animation: fade infinite ease-in-out;
 }
@@ -30,7 +40,8 @@
 
 .section {
     width: 100%;
-    position: absolute;
+    position: relative;
+    top: 20;
 }
 
 .background {
@@ -148,19 +159,36 @@
 }
 
 .btnStart {
+    z-index: 10;
     font-weight: 600;
     letter-spacing: 1.3px;
     font-size: 1.5rem;
     text-align: center;
     width: 110%;
     cursor: pointer;
-    padding: 1rem;
+    padding: 1rem 1.8rem;
     border-radius: 1.5rem;
     background-color: #F4C430;
-    box-shadow: 5px 10px #F49030;
+    box-shadow: 5px 10px 10px 3px #F49030;
+    position: relative;
 }
 
-/* .btnStart::before {
+.btnStart:hover {
+    animation: hover .3s ease-in-out;
+    background-color: #F49030;
+    box-shadow: 5px 10px #F4C430;
+}
+
+@keyframes hover {
+    0% {
+        opacity: .8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.btnStart::before {
     content: '';
     width: 30px;
     height: 30px;
@@ -168,11 +196,11 @@
     border: 14px solid #c86b15;
     position: absolute;
     z-index: -1;
-    top: 50%;
-    left: 50%;
+    left: 0;
+    top: 0;
     transform: translate(-30%, -30%);
     animation: ring 1.5s infinite;
-} */
+}
 
 /* animations ring button */
 
