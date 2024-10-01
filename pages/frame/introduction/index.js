@@ -10,7 +10,7 @@ export default function Frame1() {
         <div className={style.pandangan}></div>
       </div>
       <div className='flex flex-col items-end justify-center px-3 me-5 block absolute top-0 right-0 left-0 h-screen'>
-        <div className="mb-3">
+        <div className="mb-3 z-20">
           <h1 className='text-8xl font-bold'>Adventure Flower</h1>
         </div>
         <div className={style.handleposition}>
