@@ -61,7 +61,7 @@
 
 
 .langit {
-    background-image: url("/assets/image/frame-1/background.png");
+    background-image: url("../../assets/image/frame-1/background.png");
     background-size: cover;
     height: 100vh;
 }
@@ -72,7 +72,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/assets/image/frame-1/foreground.png');
+    background-image: url('../../assets/image/frame-1/foreground.png');
     background-size: cover;
     height: 100vh;
 }
@@ -82,7 +82,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background-image: url('/assets/image/frame-1/cloud.png');
+    background-image: url('../../assets/image/frame-1/cloud.png');
     background-size: cover;
     height: 100vh;
     animation: cloud1 12s infinite ease-in-out
@@ -93,7 +93,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background-image: url('/assets/image/frame-1/cloud1.png');
+    background-image: url('../../assets/image/frame-1/cloud1.png');
     background-size: cover;
     height: 100vh;
     opacity: 0.25;
