@@ -173,12 +173,6 @@
     position: relative;
 }
 
-.btnStart:hover {
-    animation: hover .3s ease-in-out;
-    background-color: #F49030;
-    box-shadow: 5px 10px #F4C430;
-}
-
 @keyframes hover {
     0% {
         opacity: .8;
