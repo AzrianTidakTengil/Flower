@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
 import Frame1 from "./frame/introduction";
+import Frame from "./frame";
 
 const metadata = {
   title: "Flower: crash and grow",
@@ -19,7 +20,7 @@ export default function Home() {
       <div
         className={styles.page}
       >
-        <Frame1/>
+        <Frame/>
       </div>
     </>
   );
