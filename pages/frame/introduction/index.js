@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setPage, setFrame } from "@/pages/features/main";
+import { setPage, setFrame } from "@/pages/lib/features/main";
 import style from "./style.module.css";
 import Frame from "..";
 
