@@ -1,8 +1,8 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
-import Frame1 from "./frame/introduction";
-import Frame from "./frame";
+import Frame1 from "./frame/introduction/index.page";
+import Frame from "./frame/index.page";
 
 const metadata = {
   title: "Flower: crash and grow",

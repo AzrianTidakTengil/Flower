@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
-import Frame1 from "./introduction";
+import Frame1 from "./introduction/index.page";
 import Frame2 from "./begin";
 import { useDispatch, useSelector } from 'react-redux';
 

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setPage, setFrame } from "@/pages/lib/features/main";
 import style from "./style.module.css";
-import Frame from "..";
+import Frame from "../index.page";
 
 export default function Frame1() {
   
