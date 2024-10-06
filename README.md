@@ -26,7 +26,7 @@ Salah satu project lanjutan dari [project-01](https://github.com/AzrianTidakTeng
 * Image:
     * -
 * BGM:
-    * superstar(sharou)
+    * Calm Day (te_sn)
 
 
 # Getting Started
