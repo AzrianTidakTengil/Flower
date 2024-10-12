@@ -1,12 +1,17 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setPage, setFrame } from "@/pages/lib/features/main";
+import { setPage, setFrame, toggleStart } from "@/pages/lib/features/main";
 import style from "./style.module.css";
 import Frame from "../index.page";
 
 export default function Frame1() {
-  
   const dispatch = useDispatch()
+
+  const handleStart = () => {
+    dispatch(setPage(2))
+    dispatch(toggleStart())
+  }
+
   return (
     <div className={style.section}>
       <div className={style.background}>
@@ -20,7 +25,7 @@ export default function Frame1() {
           <h1 className="text-8xl font-bold">Adventure Flower</h1>
         </div>
         <div className={style.handleposition}>
-          <div className={style.btnStart} onClick={() => dispatch(setPage(2))}>
+          <div className={style.btnStart} onClick={handleStart}>
             Start
           </div>
         </div>
