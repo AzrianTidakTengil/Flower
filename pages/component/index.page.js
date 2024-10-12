@@ -22,7 +22,8 @@ import {
 
 export default function Component() {
   const dispatch = useDispatch();
-  const { dialog, setting } = useSelector((state) => state);
+  const { dialog, setting, pagination } = useSelector((state) => state);
+  const { isStart } = pagination;
   const { isDialogSliders } = dialog;
   const { volume, isChanged, momenChanged, isDefault } = setting;
 
@@ -57,7 +58,7 @@ export default function Component() {
   const handleSave = () => {
     dispatch(isClose());
     dispatch(toggleChanged(true));
-    dispatch(toggleDefault(false));
+    dispatch(toggleDefault());
   };
 
   return (
