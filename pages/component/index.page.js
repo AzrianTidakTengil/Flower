@@ -11,7 +11,13 @@ import {
   Tooltip,
 } from "@mui/material";
 import { tooltipClasses } from "@mui/material/Tooltip";
-import { Close, RestartAlt, VolumeDown, VolumeUp, Menu } from "@mui/icons-material";
+import {
+  Close,
+  RestartAlt,
+  VolumeDown,
+  VolumeUp,
+  Menu,
+} from "@mui/icons-material";
 import { isClose } from "../lib/features/dialog";
 import {
   handleVolume,
@@ -24,6 +30,7 @@ import { ToastContainer } from "react-toastify";
 import Layer from "./transition/index.page";
 import { useEffect } from "react";
 import { isReady } from "../lib/features/main";
+import MenuBar from "./menuBar/index.page";
 
 export default function Component({ children }) {
   const dispatch = useDispatch();
@@ -36,8 +43,8 @@ export default function Component({ children }) {
   useEffect(() => {
     if (isStart) {
       setTimeout(() => {
-        dispatch(isReady())
-      }, duration + 200)
+        dispatch(isReady());
+      }, duration + 200);
     }
   });
 
@@ -144,13 +151,18 @@ export default function Component({ children }) {
       </Dialog>
       <div className={`absolute inset-0 z-10`}>
         <div className="relative h-full">
-          <div className="absolute inset-x-0 bottom-0 flex justify-center">
-            {ready ? (
-              <>
+          {ready ? (
+            <>
+              <div className="absolute inset-x-0 top-0 flex justify-start">
+                <MenuBar />
+              </div>
+              <div className="absolute inset-x-0 bottom-0 flex justify-center">
                 <DialogMessage />
-              </>
-              ) : ''}
-          </div>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
         </div>
       </div>
       {children}
