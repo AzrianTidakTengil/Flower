@@ -2,7 +2,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 
-import Frame1 from "./frame/introduction/index.page";
+import Frame1 from "./frame/main/index.page";
 import Frame from "./frame/index.page";
 
 import metadata from "./metadata";
@@ -10,13 +10,12 @@ import Component from "./component/index.page";
 
 import { Howler, Howl } from "howler";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRef, useEffect } from "react";
 
 export default function Home() {
   const { volume } = useSelector((state) => state.setting);
-
-  const audioRef = useRef(null); 
+  const audioRef = useRef(null);
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
@@ -32,10 +31,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <audio autoPlay ref={audioRef} hidden loop src="audio/main.mp3" />
-      <Component />
-      <div className={styles.page}>
-        <Frame />
-      </div>
+      <Component>
+        <div>
+          <Frame />
+        </div>
+      </Component>
     </>
   );
 }

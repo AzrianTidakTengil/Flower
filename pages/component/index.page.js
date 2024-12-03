@@ -11,7 +11,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import { tooltipClasses } from "@mui/material/Tooltip";
-import { Close, RestartAlt, VolumeDown, VolumeUp } from "@mui/icons-material";
+import { Close, RestartAlt, VolumeDown, VolumeUp, Menu } from "@mui/icons-material";
 import { isClose } from "../lib/features/dialog";
 import {
   handleVolume,
@@ -19,13 +19,27 @@ import {
   handleValueChanged,
   toggleDefault,
 } from "../lib/features/bgm";
+import DialogMessage from "./dialogMessage/index.page";
+import { ToastContainer } from "react-toastify";
+import Layer from "./transition/index.page";
+import { useEffect } from "react";
+import { isReady } from "../lib/features/main";
 
-export default function Component() {
+export default function Component({ children }) {
   const dispatch = useDispatch();
-  const { dialog, setting, pagination } = useSelector((state) => state);
-  const { isStart } = pagination;
+  const { dialog, setting, pagination, layer } = useSelector((state) => state);
+  const { isStart, ready } = pagination;
   const { isDialogSliders } = dialog;
+  const { name, duration } = layer;
   const { volume, isChanged, momenChanged, isDefault } = setting;
+
+  useEffect(() => {
+    if (isStart) {
+      setTimeout(() => {
+        dispatch(isReady())
+      }, duration + 200)
+    }
+  });
 
   const valueShow = (value) => {
     const result = Math.round(value * 100);
@@ -62,7 +76,8 @@ export default function Component() {
   };
 
   return (
-    <>
+    <Layer>
+      <ToastContainer />
       <Navbar />
       <Dialog
         fullWidth={true}
@@ -127,6 +142,18 @@ export default function Component() {
           </div>
         </DialogActions>
       </Dialog>
-    </>
+      <div className={`absolute inset-0 z-10`}>
+        <div className="relative h-full">
+          <div className="absolute inset-x-0 bottom-0 flex justify-center">
+            {ready ? (
+              <>
+                <DialogMessage />
+              </>
+              ) : ''}
+          </div>
+        </div>
+      </div>
+      {children}
+    </Layer>
   );
 }
