@@ -28,9 +28,9 @@ export default function MenuBar() {
       {
         active ? (
             <div className="w-full h-screen bg-slate-950/80 absolute flex flex-col items-center justify-center space-y-4 z-[99999]">
-                <div className="rounded px-3 py-2 bg-white text-black w-4/12 text-center text-md font-semibold cursor-pointer hover:bg-slate-50/80" onClick={(event) => __click(event)}>Back</div>
+                <div className="rounded px-3 py-2 bg-white text-black w-4/12 text-center text-2xl font-semibold cursor-pointer hover:bg-slate-50/80" onClick={(event) => __click(event)}>Back</div>
                 {/* <div className="rounded px-3 py-2 bg-white text-black w-4/12 text-center text-md font-semibold cursor-pointer hover:bg-slate-50/80" onClick={(event) => __click(event)}>Setting</div> */}
-                <div className="rounded px-3 py-2 bg-white text-black w-4/12 text-center text-md font-semibold cursor-pointer hover:bg-slate-50/80" onClick={(event) => __click(event)}>Main Menu</div>
+                <div className="rounded px-3 py-2 bg-white text-black w-4/12 text-center text-2xl font-semibold cursor-pointer hover:bg-slate-50/80" onClick={(event) => __click(event)}>Main Menu</div>
             </div>
         ) : ''
       }
