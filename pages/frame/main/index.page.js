@@ -1,15 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setPage, setFrame, toggleStart } from "@/pages/lib/features/main";
+import { nextFrame, setPage, toggleStart } from "@/pages/lib/features/main";
 import style from "./style.module.css";
 import Frame from "../index.page";
+import { layer } from "@/pages/lib/features/transition";
 
-export default function Frame1() {
+export default function MainMenu() {
   const dispatch = useDispatch()
 
   const handleStart = () => {
-    dispatch(setPage(2))
     dispatch(toggleStart())
+    dispatch(layer({name: 'loading', goTo: 1}))
   }
 
   return (

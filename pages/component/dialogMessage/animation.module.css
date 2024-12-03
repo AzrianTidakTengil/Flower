@@ -1,0 +1,52 @@
+.typewriter p {
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    overflow-wrap: break-word;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+        typing 1.5s steps(20, end),
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: orange;
+    }
+}
+
+.click {
+    animation: click ease 2.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes click {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

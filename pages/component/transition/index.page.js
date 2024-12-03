@@ -1,33 +1,37 @@
+import { useEffect, useState } from "react";
+import LoadingStage from "./loadingPage/index.page";
+import Fade from "./darkFade/index.page";
 import { useDispatch, useSelector } from "react-redux";
-import transition from "./style.module.css";
-import { progresStatus } from "@/pages/lib/features/main";
-import { setTimeout } from "timers";
-import { useState } from "react";
+import { nextFrame } from "@/pages/lib/features/main";
+import { clearLayer } from "@/pages/lib/features/transition";
 
-export default function StartTransition() {
-  const { isStart, status } = useSelector((state) => state.pagination);
+export default function Layer({ children }) {
+  const { id, name, duration, goTo } = useSelector((state) => state.layer);
   const dispatch = useDispatch();
-  const [container, setContainer] = useState(
-    "w-10 h-10 absolute end-32 top-1/2 rounded-full"
-  );
-  const [content, setContent] = useState(false);
-  if (isStart) {
+  const listLayer = [
+    { id: 0, element: <></> },
+    { id: 1, element: <LoadingStage key={2} /> },
+    { id: 2, element: <Fade key={3} /> },
+  ];
+
+  if (id) {
+    console.log(goTo);
     setTimeout(() => {
-      setContainer("w-full h-full");
-      setContent(true);
-    }, 3980);
+      dispatch(clearLayer());
+      if (goTo) dispatch(nextFrame(goTo));
+    }, duration);
   }
 
   return (
-    <div
-      className={`${container} ${
-        isStart ? transition.startTransition : "hidden"
-      } flex flex-col justify-center bg-orange-400 z-50`}
-    >
-      <div className={content ? "flex flex-col justify-center items-center space-y-2" : "hidden"}>
-        <div className="text-4xl font-bold">Waiting</div>
-        <div className="text-xl font-thin">please use handphone for the best moment</div>
-      </div>
-    </div>
+    <>
+      {id ? (
+        <>
+          {listLayer.filter((val) => val.id === id).map((val) => val.element)}
+        </>
+      ) : (
+        <></>
+      )}
+      {children}
+    </>
   );
 }

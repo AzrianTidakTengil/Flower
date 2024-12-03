@@ -1,13 +1,83 @@
-.startTransition {
-    animation: Start 4s ease-in;
+.heart {
+    position: relative;
+    overflow: hidden;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(#766DF4 0 0) bottom/100% 0% no-repeat #fff;
+    -webkit-mask:
+        radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left,
+        radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right,
+        linear-gradient(to bottom left, #000 42%, #0000 43%) bottom left,
+        linear-gradient(to bottom right, #000 42%, #0000 43%) bottom right;
+    -webkit-mask-size: 50% 50%;
+    -webkit-mask-repeat: no-repeat;
 }
 
-@keyframes Start {
+.wave {
+    position: absolute;
+    top: 0%;
+    height: 200%;
+    width: 200%;
+    border-radius: 38%;
+    left: -50%;
+    transform: rotate(360deg);
+    transition: all 2s ease;
+    animation: wave 5s linear;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+        top: 110%;
+    }
+
+    45%, 60% {
+        top: 50%;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        top: 0%;
+    }
+}
+
+.startTransition {
+    animation: start 4s ease-in;
+}
+
+.outTransition {
+    animation: fadeOut 2s ease-out;
+}
+
+.fadeIn {
+    animation:  fadeIn 2s ease-in;
+}
+
+@keyframes start {
     0% {
         transform: scale(0);
     }
 
     100% {
         transform: scale(100);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
